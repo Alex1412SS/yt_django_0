@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'bluepage/css/css.css' %}">
+    <meta charset="UTF-8">
+    <title>12121</title>
+</head>
+<body>
+{% for i in items %}
+{{ i.name }}|
+<a href="{% url 'myapp:detail' i.id %}">link</a>
+id:{{ i.id }}
+{{ i.about }}|
+{{ i.link_to }} <br>
+{% endfor %}
+</body>
+</html>
