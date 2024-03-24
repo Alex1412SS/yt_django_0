@@ -1,43 +1,17 @@
+{% extends 'bluepage/First.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'bluepage/css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'bluepage/css/cs1s.css' %}">
+    <script src="{% static 'bluepage/js/JQuery.js' %}"></script>
+     <script src="{% static 'bluepage/js/jssite.js' %}"></script>
     <meta charset="UTF-8">
     <title>12121</title>
 </head>
 <body>
-     <header class="w-full">
-        <div class="nav w-full flex text-white justify-between p-6 bg-[#272727] h-heidf">
-<div class="text-xl font-medium"><a class="text-[#ECECEC]">neiro<span class="text-green-500 ">SET</span></a></div>
-
-<div class="flex">
-    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="#">All Free ai</a>
-    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="#">Text ai</a>
-    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="#">Img generator ai</a>
-    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-12" href="#">SEO ai</a>
-    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-12" href="#">About</a>
-    <div class="px-6 p-2">
-    <a class="open_set text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-12" href="#">Setting</a>
-    <div class="set_menu absolute w-32 bg-green-500 text-black mt-8 ">
-        <a class="duration-200 block hover:bg-[#272727] p-2 hover:text-white" href="#">Dark mode</a>
-        <a class= "block mt-2 duration-200 hover:bg-[#272727] hover:text-white p-2" href="#">Language</a>
-        <a class="block mt-2 duration-200 hover:bg-[#272727] hover:text-white p-2" href="#">Setting</a>
-    </div>
-</div>
-    <div>
-        <button class=" border-2 border-green-500 bg-green-500 px-6 p-2 text-[#272727] duration-200 relative rounded-full font-semibold hover:bg-[#272727] hover:text-green-500 hover:border-2 hover:border-green-500">Подробнее</button>
-        </div>
-    </div>
-        </div>
-        <div class="info_start bg-footer-texture w-full h-back p-6 pt-12 text-white text-center">
-            <div class="for_type mx-auto">
-           <h1 class="typing-demo text-3xl font-semibold">Use AI tools for <span class="text-green-500">FREE</span></h1>
-        </div>
-           <h2 class="text-xl mt-2 text-green-500">Absolute free!</h2>
-           <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt eius dolor modi ipsam velit voluptatem deleniti rerum voluptas necessitatibus saepe perspiciatis nesciunt amet aspernatur numquam nulla odio et, possimus obcaecati?</p>
-        </div>
-    </header>
+{% block main %}
     <main class="p-8 place-content-center">
     <div class="text-center text-3xl">
         <h1>ALL free ai tools</h1>
@@ -74,6 +48,7 @@
 <div class="ais mt-8 flex flex-wrap w-maxais mx-auto p-4">
     {% for i in items %}
     <div class="w-reasd ml-12">
+        <img src="{{i.image.url}}" class="w-reasd" alt="">
         <h1 class="text-xl">{{ i.name }}</h1>
         <p>{{ i.about }}</p>
         <div class="cat_for_ais mt-2">
@@ -86,5 +61,6 @@
     {% endfor %}
 </div>
     </main>
+{% endblock main %}
 </body>
 </html>
