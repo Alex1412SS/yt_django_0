@@ -1,6 +1,4 @@
 $(function(){
-    $('body').fadeOut(0)
-    $('body').fadeIn(1000)
     $('.set_menu').hide()
 $(".open_set").click(function(){
 

@@ -1,0 +1,30 @@
+{% extends 'bluepage/First.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+            <link rel="stylesheet" href="{% static 'bluepage/css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'bluepage/css/cs1s.css' %}">
+</head>
+<body>
+{% block main%}
+<a href="{% url 'myapp:baze' %}">Back</a>
+<h1 class="text-3xl mt-2 ml-fefcas">Update item</h1>
+<div class="ml-fefcas">
+<form method="post" enctype="multipart/form-data" class="mt-12 border-black">
+    {% csrf_token %}
+    <input type="text" name="name" id="name" value="{{ items.name }}"><br>
+    <input type="text" name="about" id="about" value="{{ items.about }}"><br>
+    <input type="datetime-local" placeholder="data_time" name="data_time" id="data_time" value="{{ items.data_time }}"><br>
+    <input type="text" placeholder="link_to" name="link_to" id="link_to" value="{{ items.link_to }}"><br>
+    <img src="{{ items.image.url }}" class="w-image" alt=""><br>
+     <input type="file" accept="image/" name="image" id="image"><br>
+     <button type="submit" class="mt-8 border-2 border-green-500 bg-green-500 px-6 p-2 text-[#272727] duration-200 relative rounded-full font-semibold hover:bg-[#272727] hover:text-green-500 hover:border-2 hover:border-green-500">Подробнее</button>
+</form>
+</div>
+<div class="mt-12"></div>
+{% endblock main %}
+</body>
+</html>

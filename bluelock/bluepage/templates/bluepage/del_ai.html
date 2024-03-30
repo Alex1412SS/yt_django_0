@@ -1,0 +1,21 @@
+{% extends 'bluepage/First.html' %}
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main %}
+<h1>Delete item</h1>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <h1>{{ items.name }}</h1>
+         <img src="{{ items.image.url }}" class="w-image" alt=""><br>
+    </div>
+    <button type="submit">delete</button>
+</form>
+{% endblock main %}
+</body>
+</html>
