@@ -12,12 +12,15 @@
 </head>
 <body>
      <header class="w-full">
+
         <div class="nav w-full flex text-white justify-between p-6 bg-[#272727] h-heidf">
 <div class="text-xl font-medium"><a class="text-[#ECECEC]">neiro<span class="text-green-500 ">SET</span></a></div>
 
 <div class="flex">
-    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="#">All Free ai</a>
-    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="#">Text ai</a>
+    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="{% url 'user_app:register' %}">All Free ai</a>
+     {% if user.is_authenticated %}
+    <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="{% url 'user_app:profile' user.username %}">Text ai</a>
+    {% endif %}
     <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-6" href="#">Img generator ai</a>
     <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-12" href="#">SEO ai</a>
     <a class="text-[#ECECEC] px-6 p-2 rounded-full duration-200 hover:text-black hover:bg-green-500 mr-12" href="#">About</a>
@@ -26,12 +29,17 @@
     <div class="set_menu absolute w-32 bg-green-500 text-black mt-8 ">
         <a class="duration-200 block hover:bg-[#272727] p-2 hover:text-white" href="#">Dark mode</a>
         <a class= "block mt-2 duration-200 hover:bg-[#272727] hover:text-white p-2" href="#">Language</a>
-        <a class="block mt-2 duration-200 hover:bg-[#272727] hover:text-white p-2" href="#">Setting</a>
+        <a href="{% url 'user_app:logout' %}" class="block mt-2 duration-200 hover:bg-[#272727] hover:text-white p-2">Setting</a>
     </div>
 </div>
-    <div>
-        <button class=" border-2 border-green-500 bg-green-500 px-6 p-2 text-[#272727] duration-200 relative rounded-full font-semibold hover:bg-[#272727] hover:text-green-500 hover:border-2 hover:border-green-500">Подробнее</button>
-        </div>
+
+    <div
+            {% if user.is_authenticated %}
+          <a href="{% url 'user_app:logout' %}"><button class=" border-2 border-green-500 bg-green-500 px-6 p-2 text-[#272727] duration-200 relative rounded-full font-semibold hover:bg-[#272727] hover:text-green-500 hover:border-2 hover:border-green-500">{{ user.username }}</button></a>
+    {% else %}
+    <button class=" border-2 border-green-500 bg-green-500 px-6 p-2 text-[#272727] duration-200 relative rounded-full font-semibold hover:bg-[#272727] hover:text-green-500 hover:border-2 hover:border-green-500">логинься чепух</button>
+        {% endif %}
+</div>
     </div>
         </div>
         <div class="info_start bg-footer-texture w-full h-back p-6 pt-12 text-white text-center">

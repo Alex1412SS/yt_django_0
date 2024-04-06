@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./bluepage/**/*.{html,js}"],
+  content: ["./bluepage/**/*.{html,js}", "./users/**/*.{html,js}"],
   theme: {
     extend: {
      padding: {
