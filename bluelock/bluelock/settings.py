@@ -130,3 +130,4 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'myapp:baze'
 LOGOUT_REDIRECT_URL = 'myapp:baze'
+LOGIN_URL = 'user_app:login'

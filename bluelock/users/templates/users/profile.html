@@ -5,6 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-{{ user.username }}
+<style>
+    img {
+    width:400px;
+    }
+</style>
+
+<a href="{% url 'myapp:baze' %}"><-назад</a><br>
+<img src="{{ user.profile_model.image.url }}" alt="">
+<p>Your nickname: {{ user.username }}</p>
+<p>Your email: {% if user.email == '' %} <span>no email</span>{% else %}<span>{{ user.email }}</span>{% endif %}</p>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     <input type="file" accept="image/" name="image" id="image"><br>
+    <button type="submit">2222</button>
+</form>
+
+
 </body>
 </html>
