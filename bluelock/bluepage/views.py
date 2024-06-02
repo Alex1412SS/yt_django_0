@@ -1,18 +1,26 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, HttpResponse, redirect
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, DeleteView
 
 from .models import Ai_tools
-# def nigga(request):
-#     items = Ai_tools.objects.all()
-#     context = {
-#         'items': items
-#     }
-#     return render(request, 'bluepage/Firs1t.html', context)
+def nigga(request):
+    page_obj =items = Ai_tools.objects.all()
+    item_name = request.GET.get('search')
+    if item_name != '' and item_name is not None:
+        page_obj = items.filter(name__icontains=item_name)
+
+    paginator = Paginator(page_obj, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'page_obj': page_obj}
+    return render(request, 'bluepage/Firs1t.html', context)
 
 class Ai_tools_ai(ListView):
     model = Ai_tools
     template_name = 'bluepage/Firs1t.html'
     context_object_name = 'items'
+    paginate_by = 3
 # def index(request, id_my):
 #     item = Ai_tools.objects.get(id=id_my)
 #     context = {
@@ -24,6 +32,7 @@ class Ai_tools_detail(DetailView):
     model = Ai_tools
     template_name = 'bluepage/detail.html'
     context_object_name = 'items'
+
 
 def add_ai(request):
     if request.method == "POST":
@@ -53,7 +62,10 @@ def updateitem(request, id_my):
         return redirect("/")
     return render(request,'bluepage/readd.html', context=context)
 
-
+class Delete_Ai_tools(DeleteView):
+    model = Ai_tools
+    template_name = 'bluepage/del_ai.html'
+    success_url = reverse_lazy('myapp:baze')
 def deleteitem(request, id_my):
     item = Ai_tools.objects.get(id=id_my)
     context = {

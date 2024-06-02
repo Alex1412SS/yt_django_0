@@ -14,7 +14,7 @@ def register(request):
             return redirect('myapp:baze')
     form = New_user_form
     context = {'form': form}
-    return render(request, 'users/register.html', context)
+    return render(request, 'users/register1.html', context)
 
 
 def user_logout(request):

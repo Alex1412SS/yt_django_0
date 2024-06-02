@@ -9,4 +9,3 @@ urlpatterns = [
     path('users/', include("users.urls", namespace='user_app')),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

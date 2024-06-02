@@ -9,11 +9,9 @@ from rest_framework import generics, viewsets
 from .permissions import IsAdmin
 from .serializers import WomenSerial
 
-
 class CreateSetWomen(generics.ListCreateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerial
-    permission_classes = (IsAuthenticatedOrReadOnly, )
 
 class UpdateSetWomen(generics.RetrieveUpdateAPIView):
     queryset = Women.objects.all()

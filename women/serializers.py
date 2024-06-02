@@ -13,7 +13,7 @@ from .models import Women
 
 
 class WomenSerial(serializers.ModelSerializer):
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    is_pub = serializers.HiddenField(default=True)
 
     class Meta:
         model = Women

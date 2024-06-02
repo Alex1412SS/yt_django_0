@@ -45,9 +45,12 @@
       </select>
     <a href="{% url 'myapp:add' %}"><button type="submit" class="mt-8 border-2 border-green-500 bg-green-500 px-6 text-[#272727] duration-200 relative rounded-full font-semibold hover:bg-[#272727] hover:text-green-500 hover:border-2 hover:border-green-500">ADD ai</button></a>
 </div>
+             <form action="" method="get">
+          <input type="text" name="search" id="">
+              </form>
         </div>
 <div class="ais mt-8 flex flex-wrap w-maxais mx-auto p-4">
-    {% for i in items %}
+    {% for i in page_obj %}
     <div class="w-reasd ml-12 h-blockmge mt-16">
         <img src="{{i.image.url}}" class="w-reasd h-imagehei" alt="">
         <h1 class="text-xl">{{ i.name }}</h1>
@@ -63,6 +66,19 @@
 
     {% endfor %}
 </div>
+        <div>
+            <span> {% if page_obj.has_previos  %}</span>
+            <a href="?page=1">first</a>
+            <a href="?page=2">dfadsdd</a>
+            {% endif %}
+            <div>
+                {{ page_obj }}
+            </div>
+            <span> {% if page_obj.has_next  %}</span>
+            <a href="?page={{ page_obj.next_page_number }}">Предыдущая</a>
+            <a href="">ываыва</a>
+            {% endif %}
+        </div>
     </main>
 {% endblock main %}
 </body>
