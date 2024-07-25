@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Women(models.Model):
+class client(models.Model):
     title = models.CharField('Ваш телефон для связи', max_length=255)
     time_cre = models.DateTimeField(auto_now_add=True)
     time_upd = models.DateTimeField(auto_now=True)
