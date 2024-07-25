@@ -3,22 +3,22 @@ from django.shortcuts import render
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Women, Category
+from .models import client, Category
 from rest_framework import generics, viewsets
 
 from .permissions import IsAdmin
 from .serializers import WomenSerial
 
 class CreateSetWomen(generics.ListCreateAPIView):
-    queryset = Women.objects.all()
+    queryset = client.objects.all()
     serializer_class = WomenSerial
 
 class UpdateSetWomen(generics.RetrieveUpdateAPIView):
-    queryset = Women.objects.all()
+    queryset = client.objects.all()
     serializer_class = WomenSerial
 
 class DeleteSetWomen(generics.RetrieveDestroyAPIView):
-    queryset = Women.objects.all()
+    queryset = client.objects.all()
     serializer_class = WomenSerial
     permission_classes = (IsAdmin, )
 

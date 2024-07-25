@@ -4,7 +4,7 @@ from rest_framework import serializers
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 
-from .models import Women
+from .models import client
 
 # class WomenModel:
 #     def __init__(self, title, content):
@@ -16,7 +16,7 @@ class WomenSerial(serializers.ModelSerializer):
     is_pub = serializers.HiddenField(default=True)
 
     class Meta:
-        model = Women
+        model = client
         fields = "__all__"
 
 
